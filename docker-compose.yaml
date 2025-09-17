@@ -9,12 +9,5 @@
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
-  simpleparking.api:
-    image: simpleparking.api
-    build:
-      context: .
-      dockerfile: SimpleParking.Api/Dockerfile
-    depends_on:
-      - db
 volumes:
   db_data:
