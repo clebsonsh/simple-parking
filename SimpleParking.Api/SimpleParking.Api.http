@@ -1,6 +1,45 @@
-@SimpleParking.Api_HostAddress = http://localhost:5074
+@baseUrl = http://localhost:5000
+@vehicleId = {{getAllVehicles.response.body.0.id}}
 
-GET {{SimpleParking.Api_HostAddress}}/weatherforecast/
+###
+# @name getAllVehicles
+GET {{baseUrl}}/api/v1/vehicles
 Accept: application/json
 
 ###
+# @name getVehicleById
+GET {{baseUrl}}/api/v1/vehicles/{{vehicleId}}
+Accept: application/json
+
+###
+# @name storeVehicle
+POST {{baseUrl}}/api/v1/vehicles
+Accept: application/json
+Content-Type: application/json
+
+{
+  "brand": "Tesla",
+  "model": "Cybertruck",
+  "color": "Satin Stealth Black",
+  "plate": "8ABC123",
+  "type": "MOTORCYCLE"
+}
+
+###
+# @name updateVehicleById
+PUT {{baseUrl}}/api/v1/vehicles/{{vehicleId}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "brand": "Tesla",
+  "model": "Cybertruck",
+  "color": "Satin Stealth Black",
+  "plate": "BAC0123",
+  "type": "car"
+}
+
+###
+# @name deleteVehicleById
+DELETE {{baseUrl}}/api/v1/vehicles/{{vehicleId}}
+Accept: application/json
