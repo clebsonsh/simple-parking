@@ -1,6 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+
 namespace SimpleParking.Api.Models;
 
+[Index(nameof(Cnpj), IsUnique = true)]
 public class Establishment
 {
     public Guid Id { get; init; } = Guid.NewGuid();
