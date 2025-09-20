@@ -46,3 +46,50 @@ Content-Type: application/json
 # @name deleteVehicleById
 DELETE {{baseUrl}}/api/v1/vehicles/{{vehicleId}}
 Accept: application/json
+
+###
+# @name getAllEstablishments
+GET {{baseUrl}}/api/v1/establishments
+Accept: application/json
+
+> {%
+    client.global.set("establishmentId", response.body[0].id)
+%}
+
+###
+# @name getEstablishmentById
+GET {{baseUrl}}/api/v1/establishments/{{establishmentId}}
+Accept: application/json
+
+###
+# @name storeEstablishment
+POST {{baseUrl}}/api/v1/establishments
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Sherlock Parking",
+  "cnpj": "58547301000110",
+  "address": "Baker Street 221",
+  "motorcycleParkingSpaces": 12,
+  "carParkingSpaces": 20
+}
+
+###
+# @name updateEstablishmentById
+PUT {{baseUrl}}/api/v1/establishments/{{establishmentId}}
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Sherlock Parking",
+  "cnpj": "58547301000110",
+  "address": "Baker Street 221",
+  "motorcycleParkingSpaces": 15,
+  "carParkingSpaces": 69
+}
+
+###
+# @name deleteEstablishmentById
+DELETE {{baseUrl}}/api/v1/establishments/{{establishmentId}}
+Accept: application/json
