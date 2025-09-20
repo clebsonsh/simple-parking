@@ -9,6 +9,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(opts =>
 {
     opts.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+
+    if (builder.Environment.IsDevelopment()) opts.EnableSensitiveDataLogging();
 });
 
 var app = builder.Build();
