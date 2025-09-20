@@ -1,10 +1,13 @@
 @baseUrl = http://localhost:5000
-@vehicleId = {{getAllVehicles.response.body.0.id}}
 
 ###
 # @name getAllVehicles
 GET {{baseUrl}}/api/v1/vehicles
 Accept: application/json
+
+> {%
+    client.global.set("vehicleId", response.body[0].id)
+%}
 
 ###
 # @name getVehicleById
